@@ -1668,8 +1668,8 @@
 		}
 
 	body {
-		background-color: #ffffff;
-		color: #061132;
+		background-color: #FDFDFD;
+		color: #212B36;
 	}
 
 	body, input, select, textarea {
@@ -1720,7 +1720,7 @@
 		}
 
 	h1 {
-		font-size: 3.5rem;
+		font-size: 3.0rem;
 		line-height: 1.2;
 	}
 
@@ -1814,7 +1814,7 @@
 		}
 
 		h1 {
-			font-size: 2.5rem;
+			font-size: 2.25rem;
 		}
 
 		h2 {
@@ -1832,23 +1832,23 @@
 	}
 
 	input, select, textarea {
-		color: #061132;
+		color: #212B36;
 	}
 
 	a {
-		color: #061132;
+		color: #212B36;
 	}
 
 		a:hover {
-				color: #0B43DB;
+				color: #919EAB;
 		}
 
 	strong, b {
-		color: #061132;
+		color: #212B36;
 	}
 
 	h1, h2, h3, h4, h5, h6 {
-		color: #061132;
+		color: #212B36;
 	}
 
 	blockquote {
@@ -1996,7 +1996,7 @@
 	.button {
 		background-color: transparent;
 		box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.2);
-		color: #061132 !important;
+		color: #454F5B !important;
 	}
 
 		input[type="submit"]:hover,
@@ -2004,8 +2004,8 @@
 		input[type="button"]:hover,
 		button:hover,
 		.button:hover {
-			box-shadow: inset 0 0 0 1px #47D3E5;
-			color: #0B43DB !important;
+			box-shadow: inset 0 0 0 1px #919EAB;
+			color: #919EAB !important;
 		}
 
 		input[type="submit"]:active,
@@ -2014,8 +2014,8 @@
 		button:active,
 		.button:active {
 			background-color: rgba(71, 211, 229, 0.2);
-			box-shadow: inset 0 0 0 1px #0B43DB;
-			color: #0B43DB !important;
+			box-shadow: inset 0 0 0 1px #919EAB;
+			color: #919EAB !important;
 		}
 
 		input[type="submit"].special,
@@ -2023,9 +2023,9 @@
 		input[type="button"].special,
 		button.special,
 		.button.special {
-			background-color: #061132;
+			background-color: #919EAB;
 			box-shadow: none;
-			color: #ffffff !important;
+			color: #FDFDFD !important;
 		}
 
 			input[type="submit"].special:hover,
@@ -2033,7 +2033,7 @@
 			input[type="button"].special:hover,
 			button.special:hover,
 			.button.special:hover {
-				background-color: #0B43DB;
+				background-color: #919EAB;
 			}
 
 			input[type="submit"].special:active,
@@ -2041,7 +2041,7 @@
 			input[type="button"].special:active,
 			button.special:active,
 			.button.special:active {
-				background-color: #1ebdd1;
+				background-color: #919EAB;
 			}
 
 /* Form */
@@ -2304,7 +2304,7 @@
 	}
 
 	label {
-		color: #061132;
+		color: #212B36;
 	}
 
 	input[type="text"],
@@ -2326,7 +2326,7 @@
 		input[type="url"]:focus,
 		select:focus,
 		textarea:focus {
-			border-color: #0B43DB;
+			border-color: #212B36;
 			box-shadow: 0 0 0 1px #47D3E5;
 		}
 
@@ -2336,7 +2336,7 @@
 
 	input[type="checkbox"] + label,
 	input[type="radio"] + label {
-		color: #061132;
+		color: #212B36;
 	}
 
 		input[type="checkbox"] + label:before,
@@ -2346,14 +2346,14 @@
 
 	input[type="checkbox"]:checked + label:before,
 	input[type="radio"]:checked + label:before {
-		background-color: #061132;
-		border-color: #061132;
-		color: #ffffff;
+		background-color: #212B36;
+		border-color: #212B36;
+		color: #FDFDFD;
 	}
 
 	input[type="checkbox"]:focus + label:before,
 	input[type="radio"]:focus + label:before {
-		border-color: #0B43DB;
+		border-color: #212B36;
 		box-shadow: 0 0 0 1px #0B43DB;
 	}
 
@@ -2429,13 +2429,13 @@
 
 	a.icon.style2:hover:before {
 		box-shadow: inset 0 0 0 1px #47D3E5;
-		color: #0B43DB;
+		color: #454F5B;
 	}
 
 	a.icon.style2:active:before {
 		background-color: rgba(71, 211, 229, 0.1);
-		box-shadow: inset 0 0 0 1px #47D3E5;
-		color: #47D3E5;
+		box-shadow: inset 0 0 0 1px #454F5B;
+		color: #454F5B;
 	}
 
 /* Image */
@@ -2801,7 +2801,7 @@
 		}
 
 	table th {
-		color: #000000;
+		color: #212B36;
 	}
 
 	table thead {
@@ -6142,8 +6142,8 @@
 /* Gallery (style1) */
 
 	.gallery.style1 {
-		background-color: #000000;
-		color: #ffffff;
+		background-color: #212B36;
+		color: #FDFDFD;
 		-moz-align-items: center;
 		-webkit-align-items: center;
 		-ms-align-items: center;
@@ -6166,23 +6166,23 @@
 	}
 
 		.gallery.style1 input, .gallery.style1 select, .gallery.style1 textarea {
-			color: #ffffff;
+			color: #FDFDFD;
 		}
 
 		.gallery.style1 a {
-			color: #ffffff;
+			color: #FDFDFD;
 		}
 
 			.gallery.style1 a:hover {
-				color: #0B43DB;
+				color: #454F5B;
 			}
 
 		.gallery.style1 strong, .gallery.style1 b {
-			color: #ffffff;
+			color: #FDFDFD;
 		}
 
 		.gallery.style1 h1, .gallery.style1 h2, .gallery.style1 h3, .gallery.style1 h4, .gallery.style1 h5, .gallery.style1 h6 {
-			color: #ffffff;
+			color: #FDFDFD;
 		}
 
 		.gallery.style1 blockquote {
@@ -6205,7 +6205,7 @@
 		.gallery.style1 .button {
 			background-color: transparent;
 			box-shadow: inset 0 0 0 1px white;
-			color: #ffffff !important;
+			color: #FDFDFD !important;
 		}
 
 			.gallery.style1 input[type="submit"]:hover,
@@ -6214,7 +6214,7 @@
 			.gallery.style1 button:hover,
 			.gallery.style1 .button:hover {
 				box-shadow: inset 0 0 0 1px #47D3E5;
-				color: #0B43DB !important;
+				color: #212B36 !important;
 			}
 
 			.gallery.style1 input[type="submit"]:active,
@@ -6223,8 +6223,8 @@
 			.gallery.style1 button:active,
 			.gallery.style1 .button:active {
 				background-color: rgba(71, 211, 229, 0.2);
-				box-shadow: inset 0 0 0 1px #47D3E5;
-				color: #0B43DB !important;
+				box-shadow: inset 0 0 0 1px #919EAB;
+				color: #919EAB !important;
 			}
 
 			.gallery.style1 input[type="submit"].special,
@@ -6232,9 +6232,9 @@
 			.gallery.style1 input[type="button"].special,
 			.gallery.style1 button.special,
 			.gallery.style1 .button.special {
-				background-color: #ffffff;
+				background-color: #FDFDFD;
 				box-shadow: none;
-				color: #061132 !important;
+				color: #454F5B !important;
 			}
 
 				.gallery.style1 input[type="submit"].special:hover,
@@ -6242,7 +6242,7 @@
 				.gallery.style1 input[type="button"].special:hover,
 				.gallery.style1 button.special:hover,
 				.gallery.style1 .button.special:hover {
-					background-color: #0B43DB;
+					background-color: #919EAB;
 				}
 
 				.gallery.style1 input[type="submit"].special:active,
@@ -6250,7 +6250,7 @@
 				.gallery.style1 input[type="button"].special:active,
 				.gallery.style1 button.special:active,
 				.gallery.style1 .button.special:active {
-					background-color: #1ebdd1;
+					background-color: #454F5B;
 				}
 
 		.gallery.style1 > .forward, .gallery.style1 > .backward {
@@ -7074,7 +7074,7 @@
 
 		.wrapper.style2 > .inner {
 			padding: 5.25rem 3.5rem 3.25rem 3.5rem ;
-			background-color: #ffffff;
+			background-color: #FDFDFD;
 			border-radius: 0.5rem;
 			margin: 0 auto;
 			max-width: 100%;
@@ -8063,27 +8063,27 @@
 
 		#wrapper > .invert {
 			background-color: #061132;
-			color: #ffffff;
+			color: #FDFDFD;
 		}
 
 			#wrapper > .invert input, #wrapper > .invert select, #wrapper > .invert textarea {
-				color: #ffffff;
+				color: #FDFDFD;
 			}
 
 			#wrapper > .invert a {
-				color: #ffffff;
+				color: #FDFDFD;
 			}
 
 				#wrapper > .invert a:hover {
-					color: #0B43DB;
+					color: #454F5B;
 				}
 
 			#wrapper > .invert strong, #wrapper > .invert b {
-				color: #ffffff;
+				color: #FDFDFD;
 			}
 
 			#wrapper > .invert h1, #wrapper > .invert h2, #wrapper > .invert h3, #wrapper > .invert h4, #wrapper > .invert h5, #wrapper > .invert h6 {
-				color: #ffffff;
+				color: #FDFDFD;
 			}
 
 			#wrapper > .invert blockquote {
@@ -8110,7 +8110,7 @@
 			#wrapper > .invert .button {
 				background-color: transparent;
 				box-shadow: inset 0 0 0 1px white;
-				color: #ffffff !important;
+				color: #FDFDFD !important;
 			}
 
 				#wrapper > .invert input[type="submit"]:hover,
@@ -8119,7 +8119,7 @@
 				#wrapper > .invert button:hover,
 				#wrapper > .invert .button:hover {
 					box-shadow: inset 0 0 0 1px #47D3E5;
-					color: #0B43DB !important;
+					color: #212B36 !important;
 				}
 
 				#wrapper > .invert input[type="submit"]:active,

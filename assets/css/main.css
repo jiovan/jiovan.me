@@ -3339,7 +3339,7 @@
 				-webkit-flex-direction: column-reverse;
 				-ms-flex-direction: column-reverse;
 				flex-direction: column-reverse;
-				text-align: center;
+				text-align: left;
 			}
 
 				.banner.style1 .content {
@@ -3351,10 +3351,10 @@
 					-webkit-flex-direction: column;
 					-ms-flex-direction: column;
 					flex-direction: column;
-					-moz-justify-content: center;
-					-webkit-justify-content: center;
-					-ms-justify-content: center;
-					justify-content: center;
+					-moz-justify-content: left;
+					-webkit-justify-content: left;
+					-ms-justify-content: left;
+					justify-content: left;
 					width: 100%;
 					max-width: 100%;
 				}
@@ -3402,7 +3402,7 @@
 			}
 
 		.banner.style1.content-align-center {
-			text-align: center;
+			text-align: left;
 		}
 
 		.banner.style1.content-align-right {
@@ -3412,7 +3412,7 @@
 			@media screen and (orientation: portrait) {
 
 				.banner.style1.content-align-right {
-					text-align: center;
+					text-align: left;
 				}
 
 			}

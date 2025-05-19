@@ -1673,7 +1673,7 @@
 	}
 
 	body, input, select, textarea {
-		font-family: "Work Sans", sans-serif;
+		font-family: "Inter", system-ui, sans-serif;
 		font-size: 1rem;
 		font-weight: 300;
 		line-height: 1.65;
@@ -1720,7 +1720,7 @@
 		}
 
 	h1 {
-		font-size: 3rem;
+		font-size: 4rem;
 		line-height: 1.65;
 	}
 
@@ -8406,3 +8406,57 @@
 			#wrapper.divided > .invert:first-child {
 				box-shadow: none !important;
 			}
+
+/* Custom additions */
+.header-icons {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1rem 0;
+}
+.header-icons li {
+    display: inline-block;
+    margin-right: 0.5rem;
+}
+.header-icons li:last-child {
+    margin-right: 0;
+}
+.header-icons img {
+    width: 48px;
+    height: 48px;
+    transition: transform 0.2s;
+}
+.header-icons img:hover {
+    transform: translateY(-2px);
+}
+.alias {
+    font-size: 1.25rem;
+    color: #555;
+    margin: 0 0 1rem 0;
+}
+#counter {
+    font-weight: bold;
+}
+.previous-list {
+    list-style: none;
+    padding: 0;
+    margin: 2rem 0;
+}
+.previous-list li {
+    margin-bottom: 0.5rem;
+}
+.previous-list .note {
+    font-size: 0.875rem;
+    color: #555;
+    font-style: italic;
+}
+
+
+/* Refresh styles */
+a {
+  color: #0070f3;
+  text-decoration: none;
+  transition: color 0.2s ease-in-out;
+}
+a:hover {
+  text-decoration: underline;
+}

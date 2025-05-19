@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+        <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
 		<title>Jiovan Melendez — Product Builder</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -34,15 +34,31 @@
 				<!-- Banner -->
 					<section class="banner style1 orient-left content-align-left image-position-right fullscreen onload-image-fade-in onload-content-fade-right">
 						<div class="content">
-							<h1>Hi there.</h1>
+							<h1>Jiovan Melendez</h1>
+                                                        <p class="alias">Some people call me Jio.</p>
+                                                        <ul class="header-icons icons">
+                                                                <li><span class="icon fa-moon-o" aria-hidden="true"></span></li>
+                                                                <li><span class="icon fa-sun-o" aria-hidden="true"></span></li>
+                                                        </ul>
 							<p class="major">I’m Jiovan. I'm passionate about building software that brings people and information together in new ways.</p>
-							<p>Current product management leader at <a href="http://podium.com/">Podium</a>. Previously: <a href="http://yclist.com/">Y Combinator</a> product consultant, product lead at <a href="https://www.vivintsolar.com">Vivint Solar</a>, and early team at <a href="https://www.scan.me/about/">Scan</a> before it was <a href="https://techcrunch.com/2014/12/16/snapchat-emails-not-so-ephemeral/">acquired</a> by Snap.</p> 
+							<p>Current product management leader at <a href="http://podium.com/">Podium</a>. <span id="counter"></span> Previously: <a href="http://yclist.com/">Y Combinator</a> product consultant, product lead at <a href="https://www.vivintsolar.com">Vivint Solar</a>, and early team at <a href="https://www.scan.me/about/">Scan</a> before it was <a href="https://techcrunch.com/2014/12/16/snapchat-emails-not-so-ephemeral/">acquired</a> by Snap.</p> 
 							<p>At nights, I mentor Black and Latinx engineering students at <a href="https://twitter.com/Code2040/status/1137406090998509569?s=20">Code2040</a>. I'm a <a href="https://lambdaschool.com/alumni/profile/?id=rec9gmHkvk7u8LeYX">Lambda School</a> computer science graduate and <a href="https://marriottschool.byu.edu/cet/news/article?id=764">BYU</a> alum. Cuban/Puerto Rican. And Siri cannot pronounce my name.</p>
-						</div>
+                                                </div>
 						<div class="image">
 							<img src="SHIP_IT_Jiovan_Melendez_2-1024x682.jpg" alt="Jiovan Melendez" />
 						</div>
-					</section>
+                                                </section>
+                                                                                                <!-- Previously -->
+                                                <section class="wrapper style1 align-center">
+                                                <div class="inner">
+                                                        <h2 class="minor">Previously</h2>
+                                                        <ul class="previous-list">
+                                <li><strong>Y Combinator</strong> — product consultant</li>
+                                <li><strong>Vivint Solar</strong> — product lead</li>
+                                <li><strong>Scan</strong> — early team <span class="note">acquired by Snap</span></li>
+                        </ul>
+                </div>
+        </section>
 
 				<!-- Footer -->
 					<footer class="wrapper style1 align-center">
@@ -50,6 +66,7 @@
 							<ul class="icons">
 								<li><a href="https://twitter.com/jiovan" class="icon style2 fa-twitter"><span class="label">Twitter</span></a></li>
 								<li><a href="https://www.linkedin.com/in/jiovan" class="icon style2 fa-linkedin"><span class="label">LinkedIn</span></a></li>
+                                                                <li><a href="https://instagram.com/jiovan" class="icon style2 fa-instagram"><span class="label">Instagram</span></a></li>
 							</ul>
 							<sub>Content &copy; 2025 Jiovan Melendez, unless otherwise noted.</sub>
 						</div>
@@ -64,6 +81,19 @@
 			<script src="assets/js/skel.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+<script>
+const pad = n => `${n}`.padStart(2, '0');
+const start = new Date('2018-06-28T00:00:00-06:00');
+const counter = document.getElementById('counter');
+setInterval(() => {
+  const diff = Date.now() - start;
+  const days = Math.floor(diff / 86400000);
+  const hours = pad(Math.floor(diff / 3600000) % 24);
+  const minutes = pad(Math.floor(diff / 60000) % 60);
+  const seconds = pad(Math.floor(diff / 1000) % 60);
+  counter.textContent = `${days.toLocaleString()}d ${hours}h ${minutes}m ${seconds}s at Podium and counting`;
+}, 1000);
+</script>
 
 	</body>
 </html>

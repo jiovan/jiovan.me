@@ -1,27 +1,31 @@
-/* ───────────────────  TOKENS  ─────────────────── */
+/* ─────  TOKENS  ───── */
 :root{
-  /* light */
-  --paper:#ececec;
-  --ink:#5f636d;
-  --ink-fade:#9a9ea7;
+  /* light palette */
+  --paper:#f3f3f5;              /* Maddie bg (L95) */
+  --ink:#575b66;                /* body text (L46) */
+  --ink-fade:#8f939c;           /* secondary */
+  --rule:#dcdcdf;               /* hairline separator */
 
-  /* dark */
-  --paper-dark:#242429;
-  --ink-dark:#e6e6e6;
-  --ink-fade-dark:#868892;
+  /* dark palette */
+  --paper-dark:#252428;         /* bg (L12) */
+  --ink-dark:#e6e7ea;           /* text (L90) */
+  --ink-fade-dark:#888b92;      /* secondary dark */
+  --rule-dark:#3d3d3f;          /* hairline dark */
 
-  --ease: cubic-bezier(.33,0,.2,1);
+  --ease: cubic-bezier(.33,0,.2,1);   /* Maddie fade curve */
+  --radius:0;                          /* all square */
 }
 
-/* toggle palette by attribute */
-html[data-theme="dark"]{
+body[data-theme=dark]{
   --paper:var(--paper-dark);
   --ink:var(--ink-dark);
   --ink-fade:var(--ink-fade-dark);
+  --rule:var(--rule-dark);
 }
 
-/* ───────────────────  RESET  ─────────────────── */
+/* ─────  RESET  ───── */
 *{box-sizing:border-box;margin:0;padding:0}
+::selection{background:#c1c3c8;color:#fff}
 body{
   font-family:"Inter",system-ui,sans-serif;
   background:var(--paper);
@@ -31,59 +35,50 @@ body{
   transition:background .35s var(--ease),color .35s var(--ease);
 }
 
-/* remove tap highlight on iOS */
-button{ -webkit-tap-highlight-color:rgba(0,0,0,0); }
-
-/* ───────────────────  LAYOUT: one-screen card  ───────────────────
-   • 100vh minus safe-area ==> always fills screen without scroll
-   • column-flex auto-gaps keep elements vertically balanced         */
+/* ─────  CARD LAYOUT (one-screen)  ───── */
 .card{
   position:relative;
   height:calc(100vh - env(safe-area-inset-top) - env(safe-area-inset-bottom));
-  padding:
-    calc(env(safe-area-inset-top) + 140px)
-    24px
-    calc(env(safe-area-inset-bottom) + 32px);
   max-width:680px;
   margin:0 auto;
+  padding:
+    calc(env(safe-area-inset-top) + 140px) /* top gap matches Maddie whitespace */
+    24px
+    calc(env(safe-area-inset-bottom) + 32px);
   display:flex;
   flex-direction:column;
-  gap:clamp(18px,2.6vh,26px);
+  gap:24px;
   opacity:0;transform:translateY(24px);
   transition:opacity .6s var(--ease),transform .6s var(--ease);
 }
 .card:not(.is-loading){opacity:1;transform:none}
 
-/* ───────────────────  TYPOGRAPHY  ─────────────────── */
-.hero    {font-size:clamp(1.65rem,5.8vw,2rem);font-weight:600}
-.alias   {font-size:1rem;margin-bottom:.5rem}
-.bio     {font-size:1.125rem;font-weight:500;margin-bottom:1.5rem}
-.tenure  {font-size:1rem;margin-bottom:1.25rem;line-height:1.6}
-a{color:inherit;text-decoration:underline;text-decoration-thickness:1px}
+/* ─────  TYPOGRAPHY  ───── */
+.hero   {font-size:clamp(1.7rem,6vw,2.1rem);font-weight:600}
+.alias  {font-size:1rem}
+.bio    {font-size:1.125rem;font-weight:500}
+.tenure {font-size:1rem;font-weight:500}
+a       {color:inherit;text-decoration:underline;text-decoration-thickness:1px}
 
-/* ─────────  PREVIOUSLY block  ───────── */
+/* ─────  PREVIOUSLY  ───── */
 .section-title{
   font-size:.75rem;
   letter-spacing:.14em;
   color:var(--ink-fade);
-  margin-bottom:.5rem;
+  font-weight:600;
 }
+dl{display:flex;flex-direction:column;gap:8px}
 .row{
-  display:grid;
-  grid-template-columns:1fr auto;
-  gap:.25rem 1rem;
-  padding:.5rem 0;
-  border-bottom:1px solid #3d3d3f;
+  display:flex;justify-content:space-between;align-items:flex-start;
+  padding:6px 0;
+  border-bottom:1px solid var(--rule);
   padding-inline:16px;
 }
 .company{font-weight:600}
 .role   {font-weight:500}
-.years  {font-weight:400;color:var(--ink-fade)}
-@media(max-width:360px){
-  .row{grid-template-columns:1fr}
-}
+.years  {font-weight:400;color:var(--ink-fade);margin-left:8px}
+@media(max-width:360px){.row{flex-direction:column;gap:0}}
 
-/* ───────────────────  THEME TOGGLE  ─────────────────── */
 .theme-toggle{
   position:fixed;
   top:calc(env(safe-area-inset-top) + 16px);
@@ -94,16 +89,10 @@ a{color:inherit;text-decoration:underline;text-decoration-thickness:1px}
   width:24px;height:24px;pointer-events:none;transition:opacity .3s;
 }
 .crescent{opacity:0}
-html[data-theme="dark"] .crescent{opacity:1}
-html[data-theme="dark"] .dot     {opacity:0}
+body[data-theme=dark] .crescent{opacity:1}
+body[data-theme=dark] .dot     {opacity:0}
 
-/* ───────────────────  MOTION PREFERENCE  ─────────────────── */
+/* ─────  MOTION PREFERENCE  ───── */
 @media(prefers-reduced-motion:reduce){
   .card{transition:none}
-  /* do NOT pause counter */
-}
-
-/* ───────────────────  TABLET / DESKTOP TWEAKS  ─────────────────── */
-@media(min-width:700px){
-  .card{padding-top:96px}
 }

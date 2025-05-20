@@ -1,0 +1,37 @@
+:root {
+  --ink-100:#1c2431;
+  --ink-70:#525c6a;
+  --ink-40:#8d99ae;
+  --paper:#fafafa;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:"Inter",system-ui,sans-serif;
+  background:var(--paper);
+  color:var(--ink-100);
+  line-height:1.6;
+  padding:4rem 1rem;
+}
+a{text-decoration:underline;text-decoration-thickness:1px;}
+.container{max-width:680px;margin:0 auto}
+.hero{font-size:clamp(2.8rem,6vw,4.5rem);font-weight:900;}
+.alias{font-size:1.25rem;margin:1rem 0 2.5rem}
+.icons{display:flex;gap:1rem;margin-bottom:2.5rem}
+.icon{width:48px;transition:transform .25s}
+.icon:hover{transform:translateY(-6px);}
+.bio{font-size:1.5rem;max-width:580px;margin:0 0 2rem}
+.tenure{font-weight:500;margin-bottom:1.5rem}
+.background{margin-bottom:3.5rem}
+.section-title{font-size:.75rem;letter-spacing:.15em;color:var(--ink-40);margin-bottom:1.25rem}
+.row{display:grid;grid-template-columns:1fr 1fr auto;gap:.5rem 1rem;padding:.5rem 0;border-bottom:1px solid #eee}
+.company{font-weight:700}.role{font-weight:500}.years{color:var(--ink-70)}
+@media (prefers-reduced-motion:reduce){.icon:hover{transform:none}}
+@media (max-width:620px){
+  body{padding:2rem 1rem}
+  .icon{width:36px}
+  .row{grid-template-columns:1fr auto}
+}
+@media (max-width:420px){
+  .hero{font-size:10vw}
+  .row{grid-template-columns:1fr;margin-bottom:.75rem}
+}

@@ -1,99 +1,38 @@
-<!DOCTYPE HTML>
-<html>
-	<head>
-        <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
-		<title>Jiovan Melendez — Product Builder</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		
-		<!-- Global site tag (gtag.js) - Google Analytics -->
-		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-115837187-1"></script>
-		<script>
-  		window.dataLayer = window.dataLayer || [];
-  		function gtag(){dataLayer.push(arguments);}
-  		gtag('js', new Date());
-  		gtag('config', 'UA-115837187-1');
-		</script>
-		
-		<!-- Global site tag (gtag.js) - Google Analytics -->
-		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-115848924-1"></script>
-		<script>
-  		window.dataLayer = window.dataLayer || [];
-  		function gtag(){dataLayer.push(arguments);}
-  		gtag('js', new Date());
-		gtag('config', 'UA-115848924-1');
-		</script>
-
-	</head>
-	<body>
-
-		<!-- Wrapper -->
-			<div id="wrapper" class="divided">
-
-				<!-- Banner -->
-					<section class="banner style1 orient-left content-align-left image-position-right fullscreen onload-image-fade-in onload-content-fade-right">
-						<div class="content">
-							<h1>Jiovan Melendez</h1>
-                                                        <p class="alias">Some people call me Jio.</p>
-                                                        <ul class="header-icons icons">
-                                                                <li><span class="icon fa-moon-o" aria-hidden="true"></span></li>
-                                                                <li><span class="icon fa-sun-o" aria-hidden="true"></span></li>
-                                                        </ul>
-							<p class="major">I’m Jiovan. I'm passionate about building software that brings people and information together in new ways.</p>
-							<p>Current product management leader at <a href="http://podium.com/">Podium</a>. <span id="counter"></span> Previously: <a href="http://yclist.com/">Y Combinator</a> product consultant, product lead at <a href="https://www.vivintsolar.com">Vivint Solar</a>, and early team at <a href="https://www.scan.me/about/">Scan</a> before it was <a href="https://techcrunch.com/2014/12/16/snapchat-emails-not-so-ephemeral/">acquired</a> by Snap.</p> 
-							<p>At nights, I mentor Black and Latinx engineering students at <a href="https://twitter.com/Code2040/status/1137406090998509569?s=20">Code2040</a>. I'm a <a href="https://lambdaschool.com/alumni/profile/?id=rec9gmHkvk7u8LeYX">Lambda School</a> computer science graduate and <a href="https://marriottschool.byu.edu/cet/news/article?id=764">BYU</a> alum. Cuban/Puerto Rican. And Siri cannot pronounce my name.</p>
-                                                </div>
-						<div class="image">
-							<img src="SHIP_IT_Jiovan_Melendez_2-1024x682.jpg" alt="Jiovan Melendez" />
-						</div>
-                                                </section>
-                                                                                                <!-- Previously -->
-                                                <section class="wrapper style1 align-center">
-                                                <div class="inner">
-                                                        <h2 class="minor">Previously</h2>
-                                                        <ul class="previous-list">
-                                <li><strong>Y Combinator</strong> — product consultant</li>
-                                <li><strong>Vivint Solar</strong> — product lead</li>
-                                <li><strong>Scan</strong> — early team <span class="note">acquired by Snap</span></li>
-                        </ul>
-                </div>
-        </section>
-
-				<!-- Footer -->
-					<footer class="wrapper style1 align-center">
-						<div class="inner">
-							<ul class="icons">
-								<li><a href="https://twitter.com/jiovan" class="icon style2 fa-twitter"><span class="label">Twitter</span></a></li>
-								<li><a href="https://www.linkedin.com/in/jiovan" class="icon style2 fa-linkedin"><span class="label">LinkedIn</span></a></li>
-                                                                <li><a href="https://instagram.com/jiovan" class="icon style2 fa-instagram"><span class="label">Instagram</span></a></li>
-							</ul>
-							<sub>Content &copy; 2025 Jiovan Melendez, unless otherwise noted.</sub>
-						</div>
-					</footer>
-
-			</div>
-
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/skel.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-<script>
-const pad = n => `${n}`.padStart(2, '0');
-const start = new Date('2018-06-28T00:00:00-06:00');
-const counter = document.getElementById('counter');
-setInterval(() => {
-  const diff = Date.now() - start;
-  const days = Math.floor(diff / 86400000);
-  const hours = pad(Math.floor(diff / 3600000) % 24);
-  const minutes = pad(Math.floor(diff / 60000) % 60);
-  const seconds = pad(Math.floor(diff / 1000) % 60);
-  counter.textContent = `${days.toLocaleString()}d ${hours}h ${minutes}m ${seconds}s at Podium and counting`;
-}, 1000);
-</script>
-
-	</body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css" />
+<title>Jiovan Melendez</title>
+</head>
+<body>
+<main class="container">
+  <h1 class="hero">Jiovan Melendez</h1>
+  <p class="alias">Siri calls me “Jee oh van” (close enough).</p>
+  <p class="bio">I make AI products that figure out the next move – then take it.</p>
+  <section class="icons">
+    <img src="assets/moon.svg" alt="Moon icon" class="icon" />
+    <img src="assets/sun.svg" alt="Sun icon" class="icon" />
+  </section>
+  <p class="tenure">
+    Leading product at <a href="https://podium.com" target="_blank" rel="noopener">Podium</a>
+    <strong><span id="counter"></span></strong> and counting.
+  </p>
+  <p class="background">
+    Previously: YC product advisor, Vivint Solar PM lead, early team @ Scan → Snap.
+  </p>
+  <section class="previously">
+    <h2 class="section-title">PREVIOUSLY</h2>
+    <div class="row"><span class="company">Podium</span><span class="role">Head of AI</span><span class="years">2018–Now</span></div>
+    <div class="row"><span class="company">YC</span><span class="role">Product Consultant</span><span class="years">2017–18</span></div>
+    <div class="row"><span class="company">Vivint Solar</span><span class="role">Product Lead</span><span class="years">2015–17</span></div>
+    <div class="row"><span class="company">Scan → Snap</span><span class="role">PM (early)</span><span class="years">2013–14</span></div>
+  </section>
+</main>
+<script src="script.js" defer></script>
+</body>
 </html>

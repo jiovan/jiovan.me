@@ -13,8 +13,12 @@
 <body>
   <!-- theme toggle -->
   <button class="theme-toggle" aria-label="Toggle dark mode">
-    <img class="icon-sun"  src="assets/sun.svg"  alt="">
-    <img class="icon-moon" src="assets/moon.svg" alt="">
+    <!-- filled circle for light mode -->
+    <svg class="icon-dot"   viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="12"/></svg>
+    <!-- crescent for dark mode -->
+    <svg class="icon-moon"  viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M21 12.79A9 9 0 0 1 12.21 3a7 7 0 1 0 8.79 9.79Z"/>
+    </svg>
   </button>
 
   <main class="container">

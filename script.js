@@ -21,7 +21,7 @@ if(!matchMedia("(prefers-reduced-motion:reduce)").matches){
 
 /* ---------- staggered entry ---------- */
 window.addEventListener("load",() => {
-  requestAnimationFrame(() => document.body.classList.add("is-loaded"));
+  setTimeout(() => document.body.classList.add("is-loaded"), 80); // slight pause
 });
 
 /* ---------- theme toggle ---------- */

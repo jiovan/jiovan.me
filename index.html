@@ -3,27 +3,31 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <meta name="color-scheme" content="light dark"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css"/>
   <title>Jiovan Melendez</title>
 </head>
 
 <body>
-  <!-- light ∙ dark toggle -->
+  <!-- light / dark toggle (touch-target 44 px) -->
   <button class="theme-toggle" aria-label="Toggle dark mode">
-    <img src="assets/dot.svg"      class="dot"      alt=""/>
-    <img src="assets/crescent.svg" class="crescent" alt=""/>
+    <img src="assets/dot.svg"      class="dot"      alt="" draggable="false">
+    <img src="assets/crescent.svg" class="crescent" alt="" draggable="false">
   </button>
 
-  <!-- whole résumé is ONE flexbox column -->
+  <!-- entire résumé fits inside this flex card (no scroll) -->
   <main class="card is-loading">
     <h1 class="hero">Hi, I'm Jiovan.</h1>
 
-    <p class="alias">Siri calls me “Jee oh van” (close enough).</p>
+    <p class="alias">
+      Siri calls me “Jee oh van” (close enough).
+    </p>
 
-    <p class="bio">I build AI products.</p>
+    <p class="bio">
+      I build AI products.
+    </p>
 
     <p class="tenure">
       I’ve been building AI at
@@ -34,9 +38,22 @@
     <section class="previously">
       <h2 class="section-title">PREVIOUSLY</h2>
 
-      <div class="row"><span class="company">YC</span><span class="role">Product Consultant</span><span class="years">2017 - 18</span></div>
-      <div class="row"><span class="company">Vivint Solar</span><span class="role">Product Lead</span><span class="years">2014 - 17</span></div>
-      <div class="row"><span class="company">Scan → Snap</span><span class="role">PM (early)</span><span class="years">2013 - 14</span></div>
+      <dl>
+        <div class="row">
+          <dt class="company">YC</dt>
+          <dd class="role">Product Consultant <span class="years">2017 - 18</span></dd>
+        </div>
+
+        <div class="row">
+          <dt class="company">Vivint Solar</dt>
+          <dd class="role">Product Lead <span class="years">2014 - 17</span></dd>
+        </div>
+
+        <div class="row">
+          <dt class="company">Scan → Snap</dt>
+          <dd class="role">PM (early) <span class="years">2013 - 14</span></dd>
+        </div>
+      </dl>
     </section>
   </main>
 

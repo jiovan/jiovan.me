@@ -1,38 +1,36 @@
 <!doctype html>
 <html lang="en" data-theme="light">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <meta name="color-scheme" content="light dark"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css"/>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+  <!-- Inter 400 / 500 / 600 -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
   <title>Jiovan Melendez</title>
 </head>
 
 <body>
-  <!-- light / dark toggle (touch-target 44 px) -->
+  <!-- light / dark toggle -->
   <button class="theme-toggle" aria-label="Toggle dark mode">
-    <img src="assets/dot.svg"      class="dot"      alt="" draggable="false">
-    <img src="assets/crescent.svg" class="crescent" alt="" draggable="false">
+    <img class="dot"      src="assets/dot.svg"      alt="" draggable="false">
+    <img class="crescent" src="assets/crescent.svg" alt="" draggable="false">
   </button>
 
-  <!-- entire résumé fits inside this flex card (no scroll) -->
+  <!-- one-column résumé -->
   <main class="card is-loading">
     <h1 class="hero">Hi, I'm Jiovan.</h1>
 
-    <p class="alias">
-      Siri calls me “Jee oh van” (close enough).
+    <p class="intro">
+      Some people call me Jiovan. I’ve been building AI at
+      <a href="https://podium.com" target="_blank" rel="noopener">Podium</a>
+      for the last <span id="counter" aria-live="off"></span> - and Siri still can’t pronounce my name.
     </p>
 
     <p class="bio">
-      I build AI products.
-    </p>
-
-    <p class="tenure">
-      I’ve been building AI at
-      <a href="https://podium.com" target="_blank" rel="noopener">Podium</a>
-      for the last <span id="counter" aria-live="off"></span>.
+      I live in Utah by way of San Francisco, a quick stint in New York, then back to the Bay Area - half Puerto Rican, half Cuban.
     </p>
 
     <section class="previously">
@@ -41,17 +39,26 @@
       <dl>
         <div class="row">
           <dt class="company">YC</dt>
-          <dd class="role">Product Consultant <span class="years">2017 - 18</span></dd>
+          <dd class="role">
+            Product Consultant · SF
+            <span class="years">2017-18</span>
+          </dd>
         </div>
 
         <div class="row">
           <dt class="company">Vivint Solar</dt>
-          <dd class="role">Product Lead <span class="years">2014 - 17</span></dd>
+          <dd class="role">
+            Product Lead · SLC / NYC / SF
+            <span class="years">2014-17</span>
+          </dd>
         </div>
 
         <div class="row">
           <dt class="company">Scan → Snap</dt>
-          <dd class="role">PM (early) <span class="years">2013 - 14</span></dd>
+          <dd class="role">
+            PM&nbsp;(early) · SF
+            <span class="years">2013-14</span>
+          </dd>
         </div>
       </dl>
     </section>

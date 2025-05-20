@@ -1,96 +1,61 @@
-/* ─────  TOKENS  ───── */
+/* 1. Tokens & reset ----------------------------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
 :root{
-  /* light palette */
-  --paper:#f3f3f5;              /* Maddie bg (L95) */
-  --ink:#575b66;                /* body text (L46) */
-  --ink-fade:#8f939c;           /* secondary */
-  --rule:#dcdcdf;               /* hairline separator */
-
-  /* dark palette */
-  --paper-dark:#252428;         /* bg (L12) */
-  --ink-dark:#e6e7ea;           /* text (L90) */
-  --ink-fade-dark:#888b92;      /* secondary dark */
-  --rule-dark:#3d3d3f;          /* hairline dark */
-
-  --ease: cubic-bezier(.33,0,.2,1);   /* Maddie fade curve */
-  --radius:0;                          /* all square */
+  --paper:#f3f3f5; --ink:#575b66; --ink-fade:#8f939c; --rule:#dcdcdf;
+  --paper-dark:#252428; --ink-dark:#e6e7ea; --ink-fade-dark:#888b92; --rule-dark:#3d3d3f;
+  --ease:cubic-bezier(.33,0,.2,1);
 }
-
-html[data-theme=dark]{
-  --paper:var(--paper-dark);
-  --ink:var(--ink-dark);
-  --ink-fade:var(--ink-fade-dark);
-  --rule:var(--rule-dark);
-}
-
-/* ─────  RESET  ───── */
+html[data-theme=dark]{--paper:var(--paper-dark);--ink:var(--ink-dark);
+                      --ink-fade:var(--ink-fade-dark);--rule:var(--rule-dark);}
 *{box-sizing:border-box;margin:0;padding:0}
-::selection{background:#c1c3c8;color:#fff}
 body{
   font-family:"Inter",system-ui,sans-serif;
-  background:var(--paper);
-  color:var(--ink);
-  line-height:1.6;
-  -webkit-font-smoothing:antialiased;
+  background:var(--paper);color:var(--ink);
+  line-height:1.6;-webkit-font-smoothing:antialiased;
   transition:background .35s var(--ease),color .35s var(--ease);
 }
+a{color:inherit;text-decoration:underline;text-decoration-thickness:1px}
 
-/* ─────  CARD LAYOUT (one-screen)  ───── */
+/* 2. Card layout --------------------------------------------------- */
 .card{
-  position:relative;
   height:calc(100vh - env(safe-area-inset-top) - env(safe-area-inset-bottom));
-  max-width:680px;
-  margin:0 auto;
-  padding:
-    calc(env(safe-area-inset-top) + 140px) /* top gap matches Maddie whitespace */
-    24px
-    calc(env(safe-area-inset-bottom) + 32px);
-  display:flex;
-  flex-direction:column;
-  gap:24px;
+  max-width:680px;margin:0 auto;
+  padding:calc(env(safe-area-inset-top)+140px) 24px calc(env(safe-area-inset-bottom)+32px);
+  display:flex;flex-direction:column;gap:24px;
   opacity:0;transform:translateY(24px);
   transition:opacity .6s var(--ease),transform .6s var(--ease);
 }
 .card:not(.is-loading){opacity:1;transform:none}
 
-/* ─────  TYPOGRAPHY  ───── */
-.hero   {font-size:clamp(1.7rem,6vw,2.1rem);font-weight:600}
-.alias  {font-size:1rem}
-.bio    {font-size:1.125rem;font-weight:500}
-.tenure {font-size:1rem;font-weight:500}
-a       {color:inherit;text-decoration:underline;text-decoration-thickness:1px}
+/* 3. Type scale ---------------------------------------------------- */
+.hero{font-size:clamp(1.7rem,6vw,2.1rem);font-weight:600}
+.intro{font-size:1rem}
+.bio{font-size:1.125rem;font-weight:500}
+.tenure{font-size:1rem;font-weight:500}
 
-/* ─────  PREVIOUSLY  ───── */
-.section-title{
-  font-size:.75rem;
-  letter-spacing:.14em;
-  color:var(--ink-fade);
-  font-weight:600;
-}
+/* 4. Timeline ------------------------------------------------------ */
+.section-title{font-size:.75rem;letter-spacing:.14em;font-weight:600;color:var(--ink-fade)}
 dl{display:flex;flex-direction:column;gap:8px}
 .row{
-  display:flex;justify-content:space-between;align-items:flex-start;
-  padding:6px 0;border-bottom:1px solid var(--rule);
+  display:flex;justify-content:space-between;gap:8px;
+  padding:6px 16px;border-bottom:1px solid var(--rule);
 }
 .company{font-weight:600}
-.role   {font-weight:500}
-.years  {font-weight:400;color:var(--ink-fade);margin-left:8px}
-@media(max-width:360px){.row{flex-direction:column;gap:0}}
+.role{font-weight:500}
+.years{font-weight:400;color:var(--ink-fade)}
+@media(max-width:360px){.row{flex-direction:column}}
 
+/* 5. Theme toggle -------------------------------------------------- */
 .theme-toggle{
-  position:fixed;
-  top:calc(env(safe-area-inset-top) + 16px);
-  right:16px;
+  position:fixed;top:calc(env(safe-area-inset-top)+16px);right:16px;
   width:44px;height:44px;border:none;background:none;cursor:pointer;
 }
 .theme-toggle img{
-  width:24px;height:24px;pointer-events:none;transition:opacity .3s;
+  width:24px;height:24px;pointer-events:none;transition:opacity .3s var(--ease);
 }
 .crescent{opacity:0}
 html[data-theme=dark] .crescent{opacity:1}
-html[data-theme=dark] .dot     {opacity:0}
+html[data-theme=dark] .dot{opacity:0}
 
-/* ─────  MOTION PREFERENCE  ───── */
-@media(prefers-reduced-motion:reduce){
-  .card{transition:none}
-}
+/* 6. Reduce-motion guard ------------------------------------------ */
+@media(prefers-reduced-motion:reduce){.card{transition:none}}

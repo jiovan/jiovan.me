@@ -26,6 +26,7 @@ body{
   font-family:"Inter",system-ui,sans-serif;
   background:var(--paper);
   color:var(--ink);
+  line-height:1.6;
   -webkit-font-smoothing:antialiased;
   transition:background .35s var(--ease),color .35s var(--ease);
 }
@@ -39,22 +40,25 @@ button{ -webkit-tap-highlight-color:rgba(0,0,0,0); }
 .card{
   position:relative;
   height:calc(100vh - env(safe-area-inset-top) - env(safe-area-inset-bottom));
-  padding:calc(env(safe-area-inset-top) + 64px) 24px 48px;
+  padding:
+    calc(env(safe-area-inset-top) + 140px)
+    24px
+    calc(env(safe-area-inset-bottom) + 32px);
   max-width:680px;
   margin:0 auto;
   display:flex;
   flex-direction:column;
-  gap:clamp(16px,2.8vh,28px);
+  gap:clamp(18px,2.6vh,26px);
   opacity:0;transform:translateY(24px);
   transition:opacity .6s var(--ease),transform .6s var(--ease);
 }
 .card:not(.is-loading){opacity:1;transform:none}
 
 /* ───────────────────  TYPOGRAPHY  ─────────────────── */
-.hero{font-size:clamp(1.8rem,6vw,2.3rem);font-weight:700}
-.alias{font-size:1rem}
-.bio{font-size:1.125rem;font-weight:500;max-width:550px}
-.tenure{font-size:1rem;font-weight:500}
+.hero    {font-size:clamp(1.65rem,5.8vw,2rem);font-weight:600}
+.alias   {font-size:1rem;margin-bottom:.5rem}
+.bio     {font-size:1.125rem;font-weight:500;margin-bottom:1.5rem}
+.tenure  {font-size:1rem;margin-bottom:1.25rem;line-height:1.6}
 a{color:inherit;text-decoration:underline;text-decoration-thickness:1px}
 
 /* ─────────  PREVIOUSLY block  ───────── */
@@ -66,21 +70,25 @@ a{color:inherit;text-decoration:underline;text-decoration-thickness:1px}
 }
 .row{
   display:grid;
-  grid-template-columns:1fr 1fr auto;
+  grid-template-columns:1fr auto;
   gap:.25rem 1rem;
-  padding:.35rem 0;
-  border-bottom:1px solid #d2d2d2;
+  padding:.5rem 0;
+  border-bottom:1px solid #3d3d3f;
+  padding-inline:16px;
 }
-.company{font-weight:700}
+.company{font-weight:600}
 .role   {font-weight:500}
-.years  {color:var(--ink-fade)}
+.years  {font-weight:400;color:var(--ink-fade)}
+@media(max-width:360px){
+  .row{grid-template-columns:1fr}
+}
 
 /* ───────────────────  THEME TOGGLE  ─────────────────── */
 .theme-toggle{
   position:fixed;
   top:calc(env(safe-area-inset-top) + 16px);
   right:16px;
-  width:40px;height:40px;border:none;background:none;cursor:pointer;
+  width:44px;height:44px;border:none;background:none;cursor:pointer;
 }
 .theme-toggle img{
   width:24px;height:24px;pointer-events:none;transition:opacity .3s;
@@ -92,6 +100,7 @@ html[data-theme="dark"] .dot     {opacity:0}
 /* ───────────────────  MOTION PREFERENCE  ─────────────────── */
 @media(prefers-reduced-motion:reduce){
   .card{transition:none}
+  /* do NOT pause counter */
 }
 
 /* ───────────────────  TABLET / DESKTOP TWEAKS  ─────────────────── */

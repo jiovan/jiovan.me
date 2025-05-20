@@ -1,25 +1,23 @@
 /* ===== tenure counter  =================================== */
-const started = new Date("2018-10-01T09:00:00-06:00");   // ← adjust if needed
+const started = new Date("2018-10-01T15:00:00-06:00");   // adjust start
 const el      = document.getElementById("counter");
 
-const pad = n => `${n}`.padStart(2,"0");
-
-function tick(){
-  const diff  = Date.now() - started;
-  const days  = Math.floor(diff / 86_400_000);
-  const hours = Math.floor(diff /   3_600_000) % 24;
-  const mins  = Math.floor(diff /      60_000) % 60;
-  const secs  = Math.floor(diff /       1_000) % 60;
+function render(diffMs){
+  const d = Math.floor(diffMs / 86_400_000);
+  const h = Math.floor(diffMs /   3_600_000) % 24;
+  const m = Math.floor(diffMs /      60_000) % 60;
+  const s = Math.floor(diffMs /       1_000) % 60;
+  const pad = n => `${n}`.padStart(2,"0");
 
   el.textContent =
-    `${days} days, ${pad(hours)} hours, ` +
-    `${pad(mins)} minutes, and ${pad(secs)} seconds`;
+    `${d} days, ${pad(h)} hours, ${pad(m)} minutes, and ${pad(s)} seconds`;
 }
 
-tick();
-if(!matchMedia("(prefers-reduced-motion: reduce)").matches){
-  setInterval(tick,1000);
+function loop(t){
+  render(t - started.getTime());
+  requestAnimationFrame(loop);
 }
+requestAnimationFrame(loop);
 
 /* ===== show card after assets load ======================== */
 window.addEventListener("load",()=>requestAnimationFrame(()=>{

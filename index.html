@@ -1,38 +1,50 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css" />
-<title>Jiovan Melendez</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <title>Jiovan Melendez</title>
 </head>
+
 <body>
-<main class="container">
-  <h1 class="hero">Jiovan Melendez</h1>
-  <p class="alias">Siri calls me “Jee oh van” (close enough).</p>
-  <p class="bio">I make AI products that figure out the next move – then take it.</p>
-  <section class="icons">
-    <img src="assets/moon.svg" alt="Moon icon" class="icon" />
-    <img src="assets/sun.svg" alt="Sun icon" class="icon" />
-  </section>
-  <p class="tenure">
-    Leading product at <a href="https://podium.com" target="_blank" rel="noopener">Podium</a>
-    <strong><span id="counter"></span></strong> and counting.
-  </p>
-  <p class="background">
-    Previously: YC product advisor, Vivint Solar PM lead, early team @ Scan → Snap.
-  </p>
-  <section class="previously">
-    <h2 class="section-title">PREVIOUSLY</h2>
-    <div class="row"><span class="company">Podium</span><span class="role">Head of AI</span><span class="years">2018–Now</span></div>
-    <div class="row"><span class="company">YC</span><span class="role">Product Consultant</span><span class="years">2017–18</span></div>
-    <div class="row"><span class="company">Vivint Solar</span><span class="role">Product Lead</span><span class="years">2015–17</span></div>
-    <div class="row"><span class="company">Scan → Snap</span><span class="role">PM (early)</span><span class="years">2013–14</span></div>
-  </section>
-</main>
-<script src="script.js" defer></script>
+  <!-- theme toggle -->
+  <button class="theme-toggle" aria-label="Toggle dark mode">
+    <img class="icon-sun"  src="assets/sun.svg"  alt="">
+    <img class="icon-moon" src="assets/moon.svg" alt="">
+  </button>
+
+  <main class="container">
+    <h1 class="hero fade" style="--d:0ms">Jiovan Melendez</h1>
+    <p  class="alias fade" style="--d:50ms">Siri calls me “Jee oh van” (close enough).</p>
+    <p  class="bio  fade" style="--d:100ms">I build AI products.</p>
+
+    <section class="icons fade" style="--d:150ms">
+      <img src="assets/moon.svg" alt="" class="icon">
+      <img src="assets/sun.svg"  alt="" class="icon">
+    </section>
+
+    <p class="tenure fade" style="--d:200ms">
+      Leading product at <a href="https://podium.com" target="_blank" rel="noopener">Podium</a>
+      <strong><span id="counter"></span></strong> and counting.
+    </p>
+
+    <p class="background fade" style="--d:250ms">
+      Previously – YC product advisor, Vivint Solar PM lead, early team @ Scan (Snap acq.).
+    </p>
+
+    <section class="previously fade" style="--d:300ms">
+      <h2 class="section-title">PREVIOUSLY</h2>
+      <div class="row"><span class="company">Podium</span><span class="role">Head of AI</span><span class="years">2018 – Now</span></div>
+      <div class="row"><span class="company">YC</span><span class="role">Product Consultant</span><span class="years">2017 – 18</span></div>
+      <div class="row"><span class="company">Vivint Solar</span><span class="role">Product Lead</span><span class="years">2015 – 17</span></div>
+      <div class="row"><span class="company">Scan → Snap</span><span class="role">PM (early)</span><span class="years">2013 – 14</span></div>
+    </section>
+  </main>
+
+  <script src="script.js" defer></script>
 </body>
 </html>

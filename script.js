@@ -1,40 +1,40 @@
-/* ---------- tenure counter ---------- */
-const start = new Date("2018-10-01T09:00:00-06:00"); // \u2190 tweak if needed
-const pad   = n => `${n}`.padStart(2,"0");
+/* ===== tenure counter  =================================== */
+const started = new Date("2018-10-01T09:00:00-06:00");   // ← adjust if needed
+const el      = document.getElementById("counter");
 
-function updateCounter(){
-  const diff = Date.now() - start;
-  const d = Math.floor(diff/86_400_000);
-  const h = Math.floor(diff/3_600_000)%24;
-  const m = Math.floor(diff/60_000)%60;
-  const s = Math.floor(diff/1_000)%60;
-  document.getElementById("counter").textContent =
-    `${d}d ${pad(h)}h ${pad(m)}m ${pad(s)}s`;
+const pad = n => `${n}`.padStart(2,"0");
+
+function tick(){
+  const diff  = Date.now() - started;
+  const days  = Math.floor(diff / 86_400_000);
+  const hours = Math.floor(diff /   3_600_000) % 24;
+  const mins  = Math.floor(diff /      60_000) % 60;
+  const secs  = Math.floor(diff /       1_000) % 60;
+
+  el.textContent =
+    `${days} days, ${pad(hours)} hours, ` +
+    `${pad(mins)} minutes, and ${pad(secs)} seconds`;
 }
 
-if(!matchMedia("(prefers-reduced-motion:reduce)").matches){
-  updateCounter();
-  setInterval(updateCounter,1000);
-}else{
-  document.getElementById("counter").textContent = "\u2014";
+tick();
+if(!matchMedia("(prefers-reduced-motion: reduce)").matches){
+  setInterval(tick,1000);
 }
 
-/* ---------- staggered entry ---------- */
-window.addEventListener("load",() => {
-  setTimeout(() => document.body.classList.add("is-loaded"), 80); // slight pause
-});
+/* ===== show card after assets load ======================== */
+window.addEventListener("load",()=>requestAnimationFrame(()=>{
+  document.querySelector(".card").classList.remove("is-loading");
+}));
 
-/* ---------- theme toggle ---------- */
-const root = document.documentElement;
+/* ===== light / dark toggle  =============================== */
 const btn  = document.querySelector(".theme-toggle");
+const root = document.documentElement;
 const key  = "theme";
 
-const setTheme = t => root.setAttribute("data-theme", t);
+root.setAttribute("data-theme",localStorage.getItem(key)||"light");
 
-setTheme(localStorage.getItem(key) || "light");
-
-btn.addEventListener("click",() => {
+btn.addEventListener("click",()=>{
   const next = root.getAttribute("data-theme")==="light" ? "dark" : "light";
-  setTheme(next);
+  root.setAttribute("data-theme",next);
   localStorage.setItem(key,next);
 });

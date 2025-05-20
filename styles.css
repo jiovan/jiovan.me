@@ -1,111 +1,100 @@
-/* ====  palette (Maddie exact)  ==== */
+/* ───────────────────  TOKENS  ─────────────────── */
 :root{
-  --paper:#ececec;          /* light   */
-  --paper-dark:#242429;     /* dark    */
-  --ink-100:#60646e;        /* body text */
-  --ink-70:#7b7f88;
-  --ink-40:#9b9fa7;
-  --ink-dark:#f1f1f1;
-  --duration:.65s;
+  /* light */
+  --paper:#ececec;
+  --ink:#5f636d;
+  --ink-fade:#9a9ea7;
+
+  /* dark */
+  --paper-dark:#242429;
+  --ink-dark:#e6e6e6;
+  --ink-fade-dark:#868892;
+
+  --ease: cubic-bezier(.33,0,.2,1);
 }
 
-/* ---------- dark mode ---------- */
+/* toggle palette by attribute */
 html[data-theme="dark"]{
-  --ink-100:var(--ink-dark);
-  --ink-70:#9ba1ac;
-  --ink-40:#6e7684;
   --paper:var(--paper-dark);
+  --ink:var(--ink-dark);
+  --ink-fade:var(--ink-fade-dark);
 }
 
-/* ---------- base ---------- */
+/* ───────────────────  RESET  ─────────────────── */
 *{box-sizing:border-box;margin:0;padding:0}
 body{
   font-family:"Inter",system-ui,sans-serif;
   background:var(--paper);
-  color:var(--ink-100);
-  line-height:1.6;
-  padding:4rem 1rem;
-  transition:background-color .3s, color .3s;
+  color:var(--ink);
+  -webkit-font-smoothing:antialiased;
+  transition:background .35s var(--ease),color .35s var(--ease);
 }
-a{color:inherit;text-decoration:underline;text-decoration-thickness:1px}
-.container{
+
+/* remove tap highlight on iOS */
+button{ -webkit-tap-highlight-color:rgba(0,0,0,0); }
+
+/* ───────────────────  LAYOUT: one-screen card  ───────────────────
+   • 100vh minus safe-area ==> always fills screen without scroll
+   • column-flex auto-gaps keep elements vertically balanced         */
+.card{
+  position:relative;
+  height:calc(100vh - env(safe-area-inset-top) - env(safe-area-inset-bottom));
+  padding:calc(env(safe-area-inset-top) + 64px) 24px 48px;
   max-width:680px;
-  margin:calc(env(safe-area-inset-top) + 110px) auto 0;
-  padding:0 24px;
+  margin:0 auto;
+  display:flex;
+  flex-direction:column;
+  gap:clamp(16px,2.8vh,28px);
+  opacity:0;transform:translateY(24px);
+  transition:opacity .6s var(--ease),transform .6s var(--ease);
 }
+.card:not(.is-loading){opacity:1;transform:none}
 
-/* ---------- typography ---------- */
-.hi{               /* "Hi, I'm …" */
-  font-size:clamp(1.8rem,6vw,2.2rem);
-  font-weight:700;
-  margin-bottom:1.75rem;
-}
-.alias{
-  font-size:1rem;
-  margin-bottom:1.25rem;
-}
-.bio{
-  font-size:1.125rem;
-  margin-bottom:2rem;
-}
-.tenure{
-  font-size:1rem;
-  margin:0 0 1.25rem;
-}
-.background{margin-bottom:3.5rem}
-.section-title{font-size:.75rem;letter-spacing:.15em;color:var(--ink-40);margin-bottom:1.25rem}
+/* ───────────────────  TYPOGRAPHY  ─────────────────── */
+.hero{font-size:clamp(1.8rem,6vw,2.3rem);font-weight:700}
+.alias{font-size:1rem}
+.bio{font-size:1.125rem;font-weight:500;max-width:550px}
+.tenure{font-size:1rem;font-weight:500}
+a{color:inherit;text-decoration:underline;text-decoration-thickness:1px}
 
-
-/* ---------- previously grid ---------- */
+/* ─────────  PREVIOUSLY block  ───────── */
+.section-title{
+  font-size:.75rem;
+  letter-spacing:.14em;
+  color:var(--ink-fade);
+  margin-bottom:.5rem;
+}
 .row{
   display:grid;
   grid-template-columns:1fr 1fr auto;
-  gap:.5rem 1rem;
-  padding:.5rem 0;
+  gap:.25rem 1rem;
+  padding:.35rem 0;
   border-bottom:1px solid #d2d2d2;
 }
-.company{font-weight:700}.role{font-weight:500}.years{color:var(--ink-70)}
+.company{font-weight:700}
+.role   {font-weight:500}
+.years  {color:var(--ink-fade)}
 
-/* ---------- theme toggle button ---------- */
+/* ───────────────────  THEME TOGGLE  ─────────────────── */
 .theme-toggle{
   position:fixed;
   top:calc(env(safe-area-inset-top) + 16px);
   right:16px;
-  width:40px;height:40px;
-  background:none;
-  border:none;
-  cursor:pointer;
+  width:40px;height:40px;border:none;background:none;cursor:pointer;
 }
-.theme-toggle svg{
-  width:24px;height:24px;
-  transition:opacity .25s;
-  pointer-events:none;
+.theme-toggle img{
+  width:24px;height:24px;pointer-events:none;transition:opacity .3s;
 }
-.crescent{fill:#fff;opacity:0;}
-.dot      {fill:var(--ink-100);}
-html[data-theme="dark"] .crescent{opacity:1;}
-html[data-theme="dark"] .dot     {opacity:0;}
+.crescent{opacity:0}
+html[data-theme="dark"] .crescent{opacity:1}
+html[data-theme="dark"] .dot     {opacity:0}
 
-/* ---------- entry animation ---------- */
-.fade{
-  opacity:0;transform:translateY(20px);
-  transition:opacity var(--duration) cubic-bezier(.33,.0,.2,1),
-             transform var(--duration) cubic-bezier(.33,.0,.2,1);
-  transition-delay:var(--d);
-}
-body.is-loaded .fade{opacity:1;transform:none}
-
-/* ---------- motion respect ---------- */
-@media (prefers-reduced-motion:reduce){
-  .fade{opacity:1;transform:none;transition:none}
+/* ───────────────────  MOTION PREFERENCE  ─────────────────── */
+@media(prefers-reduced-motion:reduce){
+  .card{transition:none}
 }
 
-/* ---------- responsive tweaks ---------- */
-@media (max-width:620px){
-  body{padding:2rem 1rem}
-  .row{grid-template-columns:1fr auto}
-}
-@media (max-width:420px){
-  .hero{font-size:10vw}
-  .row{grid-template-columns:1fr;margin-bottom:.75rem}
+/* ───────────────────  TABLET / DESKTOP TWEAKS  ─────────────────── */
+@media(min-width:700px){
+  .card{padding-top:96px}
 }

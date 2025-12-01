@@ -1,61 +1,348 @@
-/* 1. Tokens & reset ----------------------------------------------- */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
-:root{
-  --paper:#f3f3f5; --ink:#575b66; --ink-fade:#8f939c; --rule:#dcdcdf;
-  --paper-dark:#252428; --ink-dark:#e6e7ea; --ink-fade-dark:#888b92; --rule-dark:#3d3d3f;
-  --ease:cubic-bezier(.33,0,.2,1);
-}
-html[data-theme=dark]{--paper:var(--paper-dark);--ink:var(--ink-dark);
-                      --ink-fade:var(--ink-fade-dark);--rule:var(--rule-dark);}
-*{box-sizing:border-box;margin:0;padding:0}
-body{
-  font-family:"Inter",system-ui,sans-serif;
-  background:var(--paper);color:var(--ink);
-  line-height:1.6;-webkit-font-smoothing:antialiased;
-  transition:background .35s var(--ease),color .35s var(--ease);
-}
-a{color:inherit;text-decoration:underline;text-decoration-thickness:1px}
+/* ============================================
+   JIOVAN.ME - Minimal Personal Site
+   ============================================ */
 
-/* 2. Card layout --------------------------------------------------- */
-.card{
-  height:calc(100vh - env(safe-area-inset-top) - env(safe-area-inset-bottom));
-  max-width:680px;margin:0 auto;
-  padding:calc(env(safe-area-inset-top)+140px) 24px calc(env(safe-area-inset-bottom)+32px);
-  display:flex;flex-direction:column;gap:24px;
-  opacity:0;transform:translateY(24px);
-  transition:opacity .6s var(--ease),transform .6s var(--ease);
-}
-.card:not(.is-loading){opacity:1;transform:none}
+/* --- Design Tokens --- */
+:root {
+  /* Light theme */
+  --bg: #fafafa;
+  --bg-subtle: #f5f5f5;
+  --text: #1a1a1a;
+  --text-secondary: #666666;
+  --text-tertiary: #999999;
+  --border: #e5e5e5;
+  --accent: #1a1a1a;
 
-/* 3. Type scale ---------------------------------------------------- */
-.hero{font-size:clamp(1.7rem,6vw,2.1rem);font-weight:600}
-.intro{font-size:1rem}
-.bio{font-size:1.125rem;font-weight:500}
-.tenure{font-size:1rem;font-weight:500}
+  /* Typography */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-serif: 'IBM Plex Serif', Georgia, 'Times New Roman', serif;
 
-/* 4. Timeline ------------------------------------------------------ */
-.section-title{font-size:.75rem;letter-spacing:.14em;font-weight:600;color:var(--ink-fade)}
-dl{display:flex;flex-direction:column;gap:8px}
-.row{
-  display:flex;justify-content:space-between;gap:8px;
-  padding:6px 16px;border-bottom:1px solid var(--rule);
-}
-.company{font-weight:600}
-.role{font-weight:500}
-.years{font-weight:400;color:var(--ink-fade)}
-@media(max-width:360px){.row{flex-direction:column}}
+  /* Spacing */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+  --space-3xl: 64px;
 
-/* 5. Theme toggle -------------------------------------------------- */
-.theme-toggle{
-  position:fixed;top:calc(env(safe-area-inset-top)+16px);right:16px;
-  width:44px;height:44px;border:none;background:none;cursor:pointer;
+  /* Animation */
+  --ease: cubic-bezier(0.25, 0.1, 0.25, 1);
+  --duration: 0.3s;
 }
-.theme-toggle img{
-  width:24px;height:24px;pointer-events:none;transition:opacity .3s var(--ease);
-}
-.crescent{opacity:0}
-html[data-theme=dark] .crescent{opacity:1}
-html[data-theme=dark] .dot{opacity:0}
 
-/* 6. Reduce-motion guard ------------------------------------------ */
-@media(prefers-reduced-motion:reduce){.card{transition:none}}
+/* Dark theme */
+html[data-theme="dark"] {
+  --bg: #111111;
+  --bg-subtle: #1a1a1a;
+  --text: #fafafa;
+  --text-secondary: #a0a0a0;
+  --text-tertiary: #666666;
+  --border: #2a2a2a;
+  --accent: #fafafa;
+}
+
+/* --- Reset --- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text);
+  background-color: var(--bg);
+  transition: background-color var(--duration) var(--ease),
+              color var(--duration) var(--ease);
+}
+
+/* --- Layout --- */
+.container {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-xl) var(--space-lg);
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xl);
+  padding-top: var(--space-3xl);
+  opacity: 0;
+  transform: translateY(12px);
+  animation: fadeIn 0.6s var(--ease) 0.1s forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --- Header --- */
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.name {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 5vw, 2.5rem);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.tagline {
+  font-size: 1.125rem;
+  color: var(--text-secondary);
+}
+
+.tagline a {
+  color: var(--text);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition: opacity var(--duration) var(--ease);
+}
+
+.tagline a:hover {
+  opacity: 0.7;
+}
+
+/* --- About --- */
+.about {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.about p {
+  font-family: var(--font-serif);
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+
+.tenure {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  color: var(--text);
+  font-variant-numeric: tabular-nums;
+}
+
+/* --- Section Labels --- */
+.section-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  margin-bottom: var(--space-md);
+}
+
+/* --- Work List --- */
+.work-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.work-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--space-md);
+  padding: var(--space-md) 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.work-list li:first-child {
+  padding-top: 0;
+}
+
+.work-company {
+  font-weight: 500;
+  flex-shrink: 0;
+}
+
+.arrow {
+  color: var(--text-tertiary);
+  font-weight: 400;
+}
+
+.work-details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+  gap: 2px;
+}
+
+.work-role {
+  color: var(--text-secondary);
+  font-size: 0.9375rem;
+}
+
+.work-meta {
+  color: var(--text-tertiary);
+  font-size: 0.8125rem;
+}
+
+/* --- Links --- */
+.link-list {
+  display: flex;
+  gap: var(--space-lg);
+  flex-wrap: wrap;
+}
+
+.link-list a {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 500;
+  position: relative;
+  transition: opacity var(--duration) var(--ease);
+}
+
+.link-list a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: var(--text);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform var(--duration) var(--ease);
+}
+
+.link-list a:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.link-list a:hover {
+  opacity: 0.7;
+}
+
+/* --- Footer --- */
+.footer {
+  padding-top: var(--space-2xl);
+  color: var(--text-tertiary);
+  font-size: 0.8125rem;
+}
+
+/* --- Theme Toggle --- */
+.theme-toggle {
+  position: fixed;
+  top: var(--space-lg);
+  right: var(--space-lg);
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  cursor: pointer;
+  color: var(--text);
+  transition: background-color var(--duration) var(--ease),
+              border-color var(--duration) var(--ease),
+              transform var(--duration) var(--ease);
+  z-index: 100;
+}
+
+.theme-toggle:hover {
+  background-color: var(--bg-subtle);
+  transform: scale(1.05);
+}
+
+.theme-toggle svg {
+  transition: opacity var(--duration) var(--ease),
+              transform var(--duration) var(--ease);
+}
+
+.icon-moon {
+  position: absolute;
+  opacity: 0;
+  transform: rotate(-90deg);
+}
+
+html[data-theme="dark"] .icon-sun {
+  opacity: 0;
+  transform: rotate(90deg);
+}
+
+html[data-theme="dark"] .icon-moon {
+  opacity: 1;
+  transform: rotate(0);
+}
+
+/* --- Responsive --- */
+@media (max-width: 480px) {
+  .container {
+    padding: var(--space-md);
+  }
+
+  .content {
+    gap: var(--space-xl);
+    padding-top: var(--space-2xl);
+  }
+
+  .work-list li {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-xs);
+  }
+
+  .work-details {
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .link-list {
+    gap: var(--space-md);
+  }
+
+  .theme-toggle {
+    top: var(--space-md);
+    right: var(--space-md);
+  }
+}
+
+/* --- Reduced Motion --- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .content {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* --- Selection --- */
+::selection {
+  background-color: var(--text);
+  color: var(--bg);
+}

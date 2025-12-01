@@ -1,69 +1,97 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en" data-theme="light">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Jiovan Melendez - Building AI at Podium">
 
-  <!-- Inter 400 / 500 / 600 -->
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-
-  <link rel="stylesheet" href="styles.css" />
   <title>Jiovan Melendez</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
-  <!-- light / dark toggle -->
-  <button class="theme-toggle" aria-label="Toggle dark mode">
-    <img class="dot"      src="assets/dot.svg"      alt="" draggable="false">
-    <img class="crescent" src="assets/crescent.svg" alt="" draggable="false">
-  </button>
+  <div class="container">
+    <!-- Theme Toggle -->
+    <button class="theme-toggle" aria-label="Toggle theme">
+      <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="12" r="5"/>
+        <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+      </svg>
+      <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+      </svg>
+    </button>
 
-  <!-- one-column résumé -->
-  <main class="card is-loading">
-    <h1 class="hero">Hi, I'm Jiovan.</h1>
+    <!-- Main Content -->
+    <main class="content">
+      <header class="header">
+        <h1 class="name">Jiovan Melendez</h1>
+        <p class="tagline">Building AI at <a href="https://podium.com" target="_blank" rel="noopener">Podium</a></p>
+      </header>
 
-    <p class="intro">
-      Some people call me Jiovan. I’ve been building AI at
-      <a href="https://podium.com" target="_blank" rel="noopener">Podium</a>
-      for the last <span id="counter" aria-live="off"></span> - and Siri still can’t pronounce my name.
-    </p>
+      <section class="about">
+        <p>
+          I'm a product person who's spent the last <span class="tenure" id="tenure"></span> helping small businesses talk to their customers through AI. Before that, I was at YC, Vivint Solar, and Scan (acquired by Snap).
+        </p>
+        <p>
+          Half Puerto Rican, half Cuban. Currently in Utah by way of San Francisco, a quick stint in New York, then back to the Bay.
+        </p>
+      </section>
 
-    <p class="bio">
-      I live in Utah by way of San Francisco, a quick stint in New York, then back to the Bay Area - half Puerto Rican, half Cuban.
-    </p>
+      <section class="work">
+        <h2 class="section-label">Experience</h2>
+        <ul class="work-list">
+          <li>
+            <span class="work-company">Podium</span>
+            <span class="work-details">
+              <span class="work-role">AI Product</span>
+              <span class="work-meta">Utah &middot; 2018&ndash;Present</span>
+            </span>
+          </li>
+          <li>
+            <span class="work-company">Y Combinator</span>
+            <span class="work-details">
+              <span class="work-role">Product Consultant</span>
+              <span class="work-meta">SF &middot; 2017&ndash;18</span>
+            </span>
+          </li>
+          <li>
+            <span class="work-company">Vivint Solar</span>
+            <span class="work-details">
+              <span class="work-role">Product Lead</span>
+              <span class="work-meta">SLC / NYC / SF &middot; 2014&ndash;17</span>
+            </span>
+          </li>
+          <li>
+            <span class="work-company">Scan <span class="arrow">&rarr;</span> Snap</span>
+            <span class="work-details">
+              <span class="work-role">Product Manager</span>
+              <span class="work-meta">SF &middot; 2013&ndash;14</span>
+            </span>
+          </li>
+        </ul>
+      </section>
 
-    <section class="previously">
-      <h2 class="section-title">PREVIOUSLY</h2>
+      <section class="links">
+        <h2 class="section-label">Elsewhere</h2>
+        <nav class="link-list">
+          <a href="https://twitter.com/jiovan" target="_blank" rel="noopener">Twitter</a>
+          <a href="https://linkedin.com/in/jiovan" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="mailto:hi@jiovan.me">Email</a>
+        </nav>
+      </section>
+    </main>
 
-      <dl>
-        <div class="row">
-          <dt class="company">YC</dt>
-          <dd class="role">
-            Product Consultant · SF
-            <span class="years">2017-18</span>
-          </dd>
-        </div>
+    <footer class="footer">
+      <p>&copy; 2024 Jiovan Melendez</p>
+    </footer>
+  </div>
 
-        <div class="row">
-          <dt class="company">Vivint Solar</dt>
-          <dd class="role">
-            Product Lead · SLC / NYC / SF
-            <span class="years">2014-17</span>
-          </dd>
-        </div>
-
-        <div class="row">
-          <dt class="company">Scan → Snap</dt>
-          <dd class="role">
-            PM&nbsp;(early) · SF
-            <span class="years">2013-14</span>
-          </dd>
-        </div>
-      </dl>
-    </section>
-  </main>
-
-  <script src="script.js" defer></script>
+  <script src="script.js"></script>
 </body>
 </html>
